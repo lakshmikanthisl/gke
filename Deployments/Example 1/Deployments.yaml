@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timezone-deploy
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: timezone-app
+  template:
+    metadata:
+      name: timezone-pod
+      labels:
+        app: timezone-app
+    spec: 
+      containers:
+      - name: timezone-container
+        image: lakshmikanthisl/timezone-app:2.0.0
+        ports:
+        - name: tcp-80
+          containerPort: 80
