@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: timezone
+  name: timezone-app
+spec:
+  containers:
+    - name: timezone
+      image: lakshmikanthisl/timezone-app:1.0.0
+      ports:
+        - containerPort: 80
+          name: TCP-80
